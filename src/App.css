@@ -6,3 +6,12 @@
 .App .App-header {
   margin: 10px 10px;
 }
+.App footer {
+  font-size: 14px;
+  opacity: 0.8;
+  text-align: center;
+}
+.App a {
+  text-decoration: none;
+  color: purple;
+}
