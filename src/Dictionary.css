@@ -1,0 +1,17 @@
+.Dictionary {
+  color: purple;
+}
+.Dictionary form {
+  text-align: center;
+}
+.Dictionary .form-button {
+  background-color: #9a519a;
+  color: beige;
+  margin: 2px;
+}
+.Dictionary .form-input {
+  margin-right: 5px;
+  max-width: 80%;
+  padding: 5px;
+  border-radius: 5px;
+}

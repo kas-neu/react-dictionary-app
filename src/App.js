@@ -1,5 +1,6 @@
 import "./App.css";
 import logo from "./logo.png";
+import Dictionary from "./Dictionary";
 
 function App() {
   return (
@@ -7,8 +8,10 @@ function App() {
       <div className="container">
         <header className="App-header">
           <img src={logo} className="App-logo img-fluid" alt="logo" />
-          <h1>Dictionary</h1>
         </header>
+        <main>
+          <Dictionary />
+        </main>
         <footer>
           <p>
             This project was coded by{" "}
