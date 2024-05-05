@@ -25,12 +25,12 @@ const Dictionary = () => {
 
   return (
     <div className="Dictionary">
-      <form onSubmit={search}>
+      <form onSubmit={search} className="form-inline ">
         <input
           onChange={handleKeywordChange}
           type="search"
           autoFocus={true}
-          className="input-group form-input"
+          className="form-input w-75"
           placeholder="Search a word"
         />
         <input type="submit" value="search" className="btn form-button" />
