@@ -8,24 +8,25 @@ const Dictionary = () => {
   let [results, setResults] = useState(null);
 
   function handleResponse(response) {
+    console.log(response.data);
     setResults(response.data);
     //  setResults(response.data.meanings[0].definition);
   }
-
-  function search(event) {
-    event.preventDefault();
+  function search() {
+    const apiKey = "t0f9aeaa40c036e39cfbab4e7a210ao8";
+    let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
+    axios.get(apiUrl).then(handleResponse);
   }
-  const apiKey = "t0f9aeaa40c036e39cfbab4e7a210ao8";
-  let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
-  axios.get(apiUrl).then(handleResponse);
-
   function handleKeywordChange(event) {
     setKeyword(event.target.value);
   }
-
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
   return (
     <div className="Dictionary">
-      <form onSubmit={search} className="form-inline ">
+      <form onSubmit={handleSubmit} className="form-inline ">
         <input
           onChange={handleKeywordChange}
           type="search"
