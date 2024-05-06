@@ -2,22 +2,38 @@ import React, { useState } from "react";
 import "./Dictionary.css";
 import axios from "axios";
 import Results from "./Results";
+import Photos from "./Photos";
 
 const Dictionary = (props) => {
   let [keyword, setKeyword] = useState(props.defaultKeyword);
   let [results, setResults] = useState(null);
   let [loaded, setLoaded] = useState(false);
+  let [photos, setPhotos] = useState(null);
 
   function handleResponse(response) {
     console.log(response.data);
     setResults(response.data);
-    //  setResults(response.data.meanings[0].definition);
+  }
+  function handlePexelResponse(response) {
+    // console.log(response.data);
+    setPhotos(response.data.photos);
   }
   function search() {
     const apiKey = "t0f9aeaa40c036e39cfbab4e7a210ao8";
     let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
+
+    let pexelsApiKey =
+      "wjrS98t0ISsr4TjAHXEs0Q8YCNiSYhiaPawSPIozkTpVLa8Acvyw0zep";
+    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=8`;
+    let headers = { Authorization: ` Bearer ${pexelsApiKey}` };
+    axios
+      .get(pexelsApiUrl, {
+        headers: headers,
+      })
+      .then(handlePexelResponse);
   }
+
   function handleKeywordChange(event) {
     setKeyword(event.target.value);
   }
@@ -47,6 +63,7 @@ const Dictionary = (props) => {
           <div className="hint">try: sunset, love, dog, diving...</div>
         </section>
         <Results results={results} />
+        <Photos photo={photos} />
       </div>
     );
   } else {
