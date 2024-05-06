@@ -6,15 +6,14 @@ const Meaning = (props) => {
   console.log(props.meaning);
   return (
     <div className="Meaning">
-      <h4>{props.meaning.partOfSpeech}</h4>
-      <p>
-        <strong>Definition:</strong>
+      <h4 className="speechPart">{props.meaning.partOfSpeech}</h4>
+      <p className="definitions">
+        <strong>Definition: </strong>
         {props.meaning.definition}
       </p>
 
       <Examples examples={props.meaning.example} />
 
-      <strong>Synonyms: </strong>
       <Synonyms synonyms={props.meaning.synonyms} />
       <br />
     </div>

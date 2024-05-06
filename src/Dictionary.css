@@ -1,6 +1,16 @@
 .Dictionary form {
   text-align: center;
-  margin-bottom: 30px;
+  margin-top: 20px;
+}
+.Dictionary .hint {
+  font-size: 10px;
+  opacity: 0.8;
+  margin-left: 44px;
+  margin-bottom: 10px;
+}
+.Dictionary .intro {
+  margin-left: 30px;
+  margin-top: 10px;
 }
 .Dictionary .form-button {
   background-color: #9a519a;
@@ -15,4 +25,41 @@
   margin-right: 5px;
   padding: 4px;
   border-radius: 3px;
+}
+.Dictionary section {
+  background-color: rgba(154, 81, 154, 0.215);
+  margin: 25px;
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+}
+.Dictionary .word {
+  font-weight: 500;
+  font-size: 35px;
+}
+.Dictionary .phonetic {
+  font-size: 20px;
+  opacity: 0.8;
+}
+.Dictionary .speechPart {
+  font-weight: 700;
+  font-size: 20px;
+  font-style: italic;
+}
+.Dictionary .Meaning {
+  font-size: 15px;
+}
+.Dictionary .Examples {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+.Dictionary p.definitions {
+  margin-bottom: 3px;
+  padding: 0;
+}
+.Dictionary .Synonyms {
+  color: #793e79;
+}
+.Dictionary .synonymWords {
+  font-style: italic;
 }

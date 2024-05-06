@@ -3,9 +3,10 @@ import "./Dictionary.css";
 import axios from "axios";
 import Results from "./Results";
 
-const Dictionary = () => {
-  let [keyword, setKeyword] = useState("");
+const Dictionary = (props) => {
+  let [keyword, setKeyword] = useState(props.defaultKeyword);
   let [results, setResults] = useState(null);
+  let [loaded, setLoaded] = useState(false);
 
   function handleResponse(response) {
     console.log(response.data);
@@ -24,21 +25,34 @@ const Dictionary = () => {
     event.preventDefault();
     search();
   }
-  return (
-    <div className="Dictionary">
-      <form onSubmit={handleSubmit} className="form-inline ">
-        <input
-          onChange={handleKeywordChange}
-          type="search"
-          autoFocus={true}
-          className="form-input w-75"
-          placeholder="Search a word"
-        />
-        <input type="submit" value="search" className="btn form-button" />
-      </form>
-      <Results results={results} />
-    </div>
-  );
+  function load() {
+    setLoaded(true);
+    search();
+  }
+  if (loaded) {
+    return (
+      <div className="Dictionary">
+        <section>
+          <h2 className="intro">What do you want to look up? 👀</h2>
+          <form onSubmit={handleSubmit} className="form-inline ">
+            <input
+              onChange={handleKeywordChange}
+              type="search"
+              autoFocus={true}
+              className="form-input w-75"
+              placeholder="Search a word"
+            />
+            <input type="submit" value="search" className="btn form-button" />
+          </form>
+          <div className="hint">try: sunset, love, dog, diving...</div>
+        </section>
+        <Results results={results} />
+      </div>
+    );
+  } else {
+    load();
+    return "Loading...";
+  }
 };
 
 export default Dictionary;
