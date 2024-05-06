@@ -11,9 +11,10 @@ const Meaning = (props) => {
         <strong>Definition:</strong>
         {props.meaning.definition}
       </p>
-      <br />
+
       <Examples examples={props.meaning.example} />
-      <br />
+
+      <strong>Synonyms: </strong>
       <Synonyms synonyms={props.meaning.synonyms} />
       <br />
     </div>
