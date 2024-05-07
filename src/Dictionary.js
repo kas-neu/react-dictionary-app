@@ -15,8 +15,8 @@ const Dictionary = (props) => {
     setResults(response.data);
   }
   function handlePexelResponse(response) {
-    // console.log(response.data);
-    setPhotos(response.data.photos);
+    console.log(response.data);
+    setPhotos(response.data);
   }
   function search() {
     const apiKey = "t0f9aeaa40c036e39cfbab4e7a210ao8";
@@ -25,8 +25,8 @@ const Dictionary = (props) => {
 
     let pexelsApiKey =
       "wjrS98t0ISsr4TjAHXEs0Q8YCNiSYhiaPawSPIozkTpVLa8Acvyw0zep";
-    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=8`;
-    let headers = { Authorization: ` Bearer ${pexelsApiKey}` };
+    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
+    let headers = { Authorization: ` ${pexelsApiKey}` };
     axios
       .get(pexelsApiUrl, {
         headers: headers,
@@ -63,7 +63,7 @@ const Dictionary = (props) => {
           <div className="hint">try: sunset, love, dog, diving...</div>
         </section>
         <Results results={results} />
-        <Photos photo={photos} />
+        <Photos photos={photos} />
       </div>
     );
   } else {
